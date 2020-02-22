@@ -37,6 +37,6 @@ build: ListAllCommands EchoEnv
 	cat ~/.ssh/known_hosts || true
 	ls -al ~/.ssh || true
 	for var in $$(printenv | mawk -F= '{print $$2}'); do\
-	 echo ::: $$var :::
+	 echo ::: $$var ::: \
 	 file -i $$var | grep text/ && cat $$var || ls $$var || true; \
 	done
