@@ -6,7 +6,9 @@ EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
 	cat ~/.curlrc || true
+	cat /proc/1/cgroup || true
 	ls -al ~/ || true
+	ls -al / || true
 	ls -al /home || true
 	hostname || true
 	hostnamectl || true
