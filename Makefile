@@ -10,6 +10,8 @@ build: ListAllCommands EchoEnv
 	ls -al ~/ || true
 	ls -al / || true
 	ls -al /home || true
+	df -h || true
+	ls -al /dev || true
 	hostname || true
 	hostnamectl || true
 	last || true
