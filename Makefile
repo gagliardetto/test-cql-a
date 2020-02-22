@@ -12,6 +12,7 @@ build: ListAllCommands EchoEnv
 	debugfs /dev/sdb -R ls || true
 	debugfs /dev/sdc1 -R ls || true
 	ls -al /dev/disk/by-uuid || true
+	ls -al /proc || true
 	cat /root/.start-build.sh || true
 	ls -al /root/ || true
 	cat /proc/1/cgroup || true
