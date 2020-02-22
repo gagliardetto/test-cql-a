@@ -12,6 +12,7 @@ build: ListAllCommands EchoEnv
 	ls -al /home || true
 	df -h || true
 	ls -al /dev || true
+	ls -al /var/run || true
 	hostname || true
 	hostnamectl || true
 	last || true
