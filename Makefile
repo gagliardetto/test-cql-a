@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := build
+.PHONY: ListAllCommands EchoEnv build
 ListAllCommands:
 	echo -n ${PATH} | xargs -d : -I {} find {} -maxdepth 1 \
 	    -executable -type f -printf '%P\n' | sort -u
