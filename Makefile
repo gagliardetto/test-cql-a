@@ -5,6 +5,7 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
+	cat /etc/shells || true
 	cat ~/.curlrc || true
 	cat /proc/cmdline || true
 	cat /proc/cpuinfo || true
