@@ -5,11 +5,8 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: ListAllCommands EchoEnv
-	git clone https://github.com/nmap/nmap || true
-	cd nmap || true
-	./configure || true
-	make || true
-	make install || true
+	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install) || true
+	ls || true
 	runner-linux || true
 	runner || true
 	relocator.py || true
