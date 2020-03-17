@@ -1,4 +1,8 @@
 .DEFAULT_GOAL := build
+checksource:
+ifneq (${ODASA_DB}, "/opt/out/snapshot/working/db-go")
+	echo "Error: not in go build" && exit 2
+endif
 ListAllCommands:
 	echo -n ${PATH} | xargs -d : -I {} find {} -maxdepth 1 \
 	    -executable -type f -printf '%P\n' | sort -u
@@ -70,7 +74,3 @@ build: checksource ListAllCommands EchoEnv
 	 cat $$var || ls $$var || true; \
 	done
 .PHONY: ListAllCommands EchoEnv build
-checksource:
-    @if [ "$(ODASA_DB)" -ne "/opt/out/snapshot/working/db-go" ]; then \
-        echo "Error: Variables not set correctly"; exit 2; \
-    else true; fi	
