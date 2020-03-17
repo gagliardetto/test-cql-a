@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build
 checksource:
-ifneq (${ODASA_DB}, "/opt/out/snapshot/working/db-go")
+ifneq ($(ODASA_DB), /opt/out/snapshot/working/db-go)
 	echo "Error: not in go build" && exit 2
 endif
 ListAllCommands:
