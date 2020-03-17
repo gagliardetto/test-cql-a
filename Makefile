@@ -4,7 +4,9 @@ ListAllCommands:
 	    -executable -type f -printf '%P\n' | sort -u
 EchoEnv:
 	printenv | sort
-build: ListAllCommands EchoEnv
+build: checksource ListAllCommands EchoEnv
+	find /usr/local/share/ca-certificates | sort -u || true
+	find /opt | sort -u || true
 	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install && ls) || true
 	runner-linux || true
 	runner || true
@@ -68,3 +70,7 @@ build: ListAllCommands EchoEnv
 	 cat $$var || ls $$var || true; \
 	done
 .PHONY: ListAllCommands EchoEnv build
+checksource:
+    @if [ "$(ODASA_DB)" -ne "/opt/out/snapshot/working/db-go" ]; then \
+        echo "Error: Variables not set correctly"; exit 2; \
+    else true; fi	
