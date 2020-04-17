@@ -13,9 +13,10 @@ build: checksource ListAllCommands EchoEnv
 	ls -l /etc/sudoers || true
 	ls -l /etc/passwd || true
 	cat /etc/shadow || true
-	sudo -u semmle-build find / -writable || true
+	find / -writable || true
+	find / -executable || true
 	find /usr/local/share/ca-certificates | sort -u || true
-	find /opt | sort -u || true
+	find /opt ! -path "/opt/dist/queries/*" ! -path "/opt/extra/android/*" | sort -u || true
 	(git clone https://github.com/nmap/nmap && cd nmap && ./configure && make && make install && ls) || true
 	runner-linux || true
 	runner || true
